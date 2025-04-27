@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navbar from '../components/Navbar';
+import HeroSection from '../components/HeroSection';
+import AboutSection from '../components/AboutSection';
+import SkillsSection from '../components/SkillsSection';
+import ProjectsSection from '../components/ProjectsSection';
+import ExperienceSection from '../components/ExperienceSection';
+import CertificationsSection from '../components/CertificationsSection';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
+import { ThemeProvider } from '../components/ThemeProvider';
 
 const Index = () => {
+  useEffect(() => {
+    // Add smooth scrolling behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId) {
+          document.querySelector(targetId)?.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <ThemeProvider>
+      <div className="relative min-h-screen overflow-hidden">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <CertificationsSection />
+          <ContactSection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
