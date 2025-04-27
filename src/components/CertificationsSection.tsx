@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { Dialog } from '@headlessui/react';
 interface Certification {
   id: number;
   name: string;
@@ -15,43 +14,46 @@ interface Certification {
 const CERTIFICATIONS: Certification[] = [
   {
     id: 1,
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "Jan 2023",
-    description: "Designing distributed systems on AWS, implementing security controls, and deploying applications with high availability.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=300&q=80",
-    credentialId: "AWS-123456"
+    name: "Mern Stack Certified Web Development",
+    issuer: "CodeHelp",
+    date: "2023",
+    description: "Certified in full-stack web development using the MERN stack, mastering MongoDB, Express.js, React.js, and Node.js with industry-level projects.",
+    image: "/assets/mern-stack.png",
+    credentialId: "C0YPEALK"
   },
   {
     id: 2,
-    name: "Full Stack Web Developer",
-    issuer: "Udacity",
-    date: "Oct 2022",
-    description: "Modern full stack development with React, Node.js, and PostgreSQL including authentication and deployment.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=300&q=80",
-    credentialId: "FSND-789012"
+    name: "Basic Python",
+    issuer: "Hacker Rank",
+    date: "2022",
+    description: "Certified in Python fundamentals covering data structures, algorithms, and problem-solving skills for building scalable applications.",
+    image: "/assets/python.png",
+    credentialId: "BE6DF704F691"
   },
   {
     id: 3,
-    name: "Professional Scrum Master I",
-    issuer: "Scrum.org",
-    date: "Mar 2022",
-    description: "Demonstrating knowledge of Scrum practices, including facilitation, coaching, and servant leadership.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80",
-    credentialId: "PSM-345678"
+    name: "SEO",
+    issuer: "Tutorial Point",
+    date: "Mar 2024",
+    description: "Certified in Search Engine Optimization (SEO) strategies including on-page SEO, technical SEO, link building, and analytics tools.",
+    image: "/assets/seo.jpg",
+    credentialId: "TP-QAREYIK9"
   },
   {
     id: 4,
-    name: "TensorFlow Developer Certificate",
-    issuer: "Google",
-    date: "Sep 2021",
-    description: "Building and training neural networks for computer vision, NLP, and time series data with TensorFlow.",
-    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=300&q=80",
-    credentialId: "TF-901234"
-  },
+    name: "SQL",
+    issuer: "Linkedin",
+    date: "Mar 2024",
+    description: "Certified in SQL database management, mastering data querying, relational databases, normalization, and advanced SQL operations.",
+    image: "/assets/sql.jpg",
+    credentialId: "2370531df1977f673370c86a6db3aa658332183d2ad9060e48f1954541989c76"
+  }
 ];
 
+
 const CertificationsSection = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section id="certifications" className="py-20 relative overflow-hidden">
       <div className="section-container">
@@ -72,101 +74,41 @@ const CertificationsSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Professional certifications that validate my expertise and knowledge.
-          Hover over the cards to see more details.
+          Professional certifications validating my technical expertise and skills. Click on a certificate to view it.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {CERTIFICATIONS.map((cert, index) => (
-            <FlipCard key={cert.id} certification={cert} index={index} />
+            <motion.div
+              key={cert.id}
+              className="glass-card p-6 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedImage(cert.image)}
+            >
+              <div 
+                className="w-20 h-20 rounded-full bg-cover bg-center mb-4"
+                style={{ backgroundImage: `url(${cert.image})` }}
+              />
+              <h3 className="text-lg font-semibold text-center mb-2">
+                {cert.name}
+              </h3>
+              <p className="text-primary text-sm">{cert.issuer}</p>
+              <p className="text-muted-foreground text-sm">{cert.date}</p>
+            </motion.div>
           ))}
         </div>
+
+        {/* Lightbox Modal */}
+        <Dialog open={!!selectedImage} onClose={() => setSelectedImage(null)} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80">
+          <Dialog.Panel className="max-w-3xl w-full">
+            <img src={selectedImage || ''} alt="Certificate" className="rounded-lg shadow-lg" />
+          </Dialog.Panel>
+        </Dialog>
       </div>
     </section>
-  );
-};
-
-interface FlipCardProps {
-  certification: Certification;
-  index: number;
-}
-
-const FlipCard = ({ certification, index }: FlipCardProps) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  return (
-    <motion.div
-      className="h-80 w-full perspective-1000 cursor-pointer"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      onClick={() => setIsFlipped(!isFlipped)}
-    >
-      <motion.div
-        className="relative w-full h-full preserve-3d transition-all duration-500"
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-      >
-        {/* Front of card */}
-        <motion.div
-          className="absolute w-full h-full backface-hidden glass-card rounded-xl p-6 flex flex-col items-center justify-center"
-          style={{ backfaceVisibility: "hidden" }}
-        >
-          <div 
-            className="w-16 h-16 rounded-full bg-cover bg-center mb-4"
-            style={{ backgroundImage: `url(${certification.image})` }}
-          />
-          <h3 className="text-lg font-semibold text-center mb-2">
-            {certification.name}
-          </h3>
-          <p className="text-primary text-sm mb-1">{certification.issuer}</p>
-          <p className="text-muted-foreground text-sm">{certification.date}</p>
-          
-          <motion.p
-            className="text-xs text-muted-foreground mt-4 text-center"
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            (Click to flip)
-          </motion.p>
-        </motion.div>
-
-        {/* Back of card */}
-        <motion.div
-          className="absolute w-full h-full backface-hidden glass-card rounded-xl p-6 flex flex-col"
-          style={{ 
-            backfaceVisibility: "hidden", 
-            transform: "rotateY(180deg)"
-          }}
-        >
-          <h3 className="text-lg font-semibold mb-4">
-            {certification.name}
-          </h3>
-          <p className="text-sm flex-grow">
-            {certification.description}
-          </p>
-          <div className="mt-4">
-            <p className="text-xs text-muted-foreground">
-              <span className="font-semibold">Issued by:</span> {certification.issuer}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              <span className="font-semibold">Date:</span> {certification.date}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              <span className="font-semibold">Credential ID:</span> {certification.credentialId}
-            </p>
-          </div>
-          
-          <motion.p
-            className="text-xs text-muted-foreground mt-4 text-center"
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            (Click to flip back)
-          </motion.p>
-        </motion.div>
-      </motion.div>
-    </motion.div>
   );
 };
 

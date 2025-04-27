@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -94,7 +93,7 @@ const HeroSection = () => {
                 className="text-4xl md:text-6xl font-bold mb-4"
                 variants={typingVariants}
               >
-                {"John Developer".split('').map((char, index) => (
+                {"Golu Singh".split('').map((char, index) => (
                   <motion.span key={index} className="inline-block" variants={letterVariants}>
                     {char === ' ' ? '\u00A0' : char}
                   </motion.span>
@@ -104,33 +103,40 @@ const HeroSection = () => {
                 className="text-xl md:text-3xl font-mono font-semibold mb-8 text-gradient"
                 variants={letterVariants}
               >
-                <span className="typing-demo">Full Stack Developer</span>
+                <span className="typing-demo">Software Engineer</span>
               </motion.div>
               <motion.p 
                 className="text-muted-foreground mb-8 max-w-lg"
                 variants={letterVariants}
               >
-                I build modern, responsive applications with cutting-edge technologies.
-                Specializing in React, Node.js, and cloud architecture.
+                Software enginner at <a href='https://visnet.in/' className='hover:border-b border-blue-400' target='blank' >Vis Network  </a>& Freelance Innovator | UI/UX Designer & JS Framework Developer| Ex-Intern <a href='https://wooble.org/' className='hover:border-b border-blue-400' target='blank'> @Wooble 🚀  </a> <br/>
+               <span className="flex items-center gap-2">
+                <a href="tel:+916371790702" className='hover:border-b border-blue-400' >+91-6371790702</a> | 
+                <a href="mailto:637golusingh@gmail.com" className='hover:border-b border-blue-400' >637golusingh@gmail.com</a> | 
+                <a href='https://www.linkedin.com/in/golu-singh/' target='blank' className='hover:border-b border-blue-400' >LinkedIn</a> | 
+                <a href='https://github.com/1sisodiyaji' target='blank' className='hover:border-b border-blue-400' >GitHub</a>
+              </span>
               </motion.p>
               <motion.div 
                 className="flex flex-wrap gap-4"
                 variants={letterVariants}
               >
-                <motion.button
+                <motion.a
                   className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium"
                   whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(112, 48, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
+                  href='#projects'
                 >
                   View Projects
-                </motion.button>
-                <motion.button
+                </motion.a>
+                <motion.a
+                href='#contact'
                   className="px-6 py-3 rounded-lg border border-primary text-primary font-medium"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Contact Me
-                </motion.button>
+                </motion.a>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -150,7 +156,7 @@ const HeroSection = () => {
             >
               <div className="w-full h-full rounded-full overflow-hidden bg-background">
                 <div className="w-full h-full bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 flex items-center justify-center text-4xl font-bold text-primary">
-                  JD
+                  <img src="https://media.licdn.com/dms/image/v2/D5603AQERSJM-YRt9VA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1704539684519?e=1751500800&v=beta&t=4PQ96uOEs9EZAzy-Z_lpkPRogOnbG4_lbHoz-yBIUmw" alt="Golu Singh" title='Golu Singh' loading='lazy' className='w-full h-full rounded-full' />
                 </div>
               </div>
               {/* Animated particles around the avatar */}

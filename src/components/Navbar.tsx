@@ -37,7 +37,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="text-xl md:text-2xl font-bold text-gradient">Dev.Portfolio</span>
+          <span className="text-xl md:text-2xl font-bold text-gradient">Golu Singh</span>
         </motion.div>
 
         <div className="hidden md:flex space-x-8">

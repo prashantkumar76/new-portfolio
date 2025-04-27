@@ -106,7 +106,6 @@ const ContactSection = () => {
                   className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none"
                   variants={inputVariants}
                   whileFocus="focus"
-                  whileBlur="blur"
                   initial="blur"
                 />
               </div>
@@ -125,7 +124,6 @@ const ContactSection = () => {
                   className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none"
                   variants={inputVariants}
                   whileFocus="focus"
-                  whileBlur="blur"
                   initial="blur"
                 />
               </div>
@@ -144,7 +142,6 @@ const ContactSection = () => {
                   className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none"
                   variants={inputVariants}
                   whileFocus="focus"
-                  whileBlur="blur"
                   initial="blur"
                 />
               </div>
@@ -192,26 +189,25 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <div>
                   <p className="font-medium">Email</p>
-                  <p className="text-primary">john.developer@example.com</p>
+                  <p className="text-primary">637golusingh@gmail.com</p>
                 </div>
                 
                 <div>
                   <p className="font-medium">Based in</p>
-                  <p className="text-muted-foreground">San Francisco, CA</p>
+                  <p className="text-muted-foreground">Bhubaneswar , Odisha</p>
                 </div>
                 
                 <div className="flex justify-center md:justify-start space-x-4 pt-4">
-                  {['github', 'linkedin', 'twitter', 'dribbble'].map((social) => (
-                    <motion.a
+                  {['g', 'o', 'l', 'u'].map((social) => (
+                    <motion.div
                       key={social}
-                      href="#"
                       className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
                       whileHover={{ y: -5, scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
                       {/* Placeholder for social icons */}
                       <span className="text-xs">{social[0].toUpperCase()}</span>
-                    </motion.a>
+                    </motion.div>
                   ))}
                 </div>
               </div>

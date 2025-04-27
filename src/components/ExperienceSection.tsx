@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface Experience {
@@ -14,52 +12,43 @@ interface Experience {
 const EXPERIENCES: Experience[] = [
   {
     id: 1,
-    role: "Senior Full Stack Developer",
-    company: "TechCorp Inc.",
-    duration: "2022 - Present",
+    role: "Web Developer Intern",
+    company: "Wooble Software Pvt. Ltd.",
+    duration: "Oct 2023 - May 2024",
     description: [
-      "Led development of a microservices architecture that improved system scalability by 300%",
-      "Implemented CI/CD pipelines that reduced deployment time by 70%",
-      "Mentored junior developers and conducted code reviews"
+      "Spearheaded the development of a full-stack website, achieving a 25% reduction in response time",
+      "Conducted comprehensive testing and optimization of API functionality using Postman, reducing error rates",
+      "Initiated the creation of a Community Platform, driving a 45% increase in user engagement and implementing SEO strategies for content indexing on Google Search Console",
+      "Collaborated with the team on project deployment through GIT, reducing code conflicts by 35% in the Git Branching and ensuring management on AWS servers"
     ],
-    tech: ["React", "Node.js", "AWS", "Kubernetes", "GraphQL"]
+    tech: ["React", "Node.js", "Postman", "Git", "AWS", "SEO"]
   },
   {
     id: 2,
-    role: "Frontend Developer",
-    company: "Digital Solutions Ltd.",
-    duration: "2020 - 2022",
+    role: "Software Engineer",
+    company: "Vis Network Pvt. Ltd.",
+    duration: "Oct 2024 - Present",
     description: [
-      "Developed responsive web applications with React and TypeScript",
-      "Improved page load times by 40% through code optimizations",
-      "Built reusable component library used across multiple projects"
+      "Spearheaded the development of a full-stack website, achieving a 25% reduction in response time",
+      "Conducted comprehensive testing and optimization of API functionality using Postman, reducing error rates",
+      "Initiated the creation of a Community Platform, driving a 45% increase in user engagement and implementing SEO strategies for content indexing on Google Analytics",
+      "Collaborated with the team on project deployment through GIT, reducing code conflicts by 35% in the Git Version and ensuring management on AWS servers"
     ],
-    tech: ["React", "TypeScript", "SCSS", "Redux", "Jest"]
+    tech: ["React", "Node.js", "Postman", "Git", "AWS", "SEO"]
   },
   {
     id: 3,
-    role: "Web Developer",
-    company: "Creative Agency",
-    duration: "2018 - 2020",
+    role: "Open Source Contributor",
+    company: "Craftfosslabs",
+    duration: "2025- present",
     description: [
-      "Developed client websites with modern JavaScript frameworks",
-      "Collaborated with designers to implement pixel-perfect UIs",
-      "Created dynamic animations and interactive elements"
+      "Contributed to Craftfosslabs' open-source platform by developing and maintaining open-source packages, extensions, and APIs.",
+      "Collaborated with the team to create free tools and resources for developers, including a code-sharing platform, finance planner, and task manager.",
+      "Supported the development of free public APIs and contributed to the community with useful resources like roadmaps, tutorials, and guides."
     ],
-    tech: ["JavaScript", "HTML/CSS", "jQuery", "PHP", "WordPress"]
-  },
-  {
-    id: 4,
-    role: "Junior Developer",
-    company: "Startup Innovations",
-    duration: "2017 - 2018",
-    description: [
-      "Assisted in developing MVPs for early-stage startups",
-      "Built frontend components and integrations with backend APIs",
-      "Participated in agile development processes"
-    ],
-    tech: ["JavaScript", "CSS", "React", "Express"]
+    tech: ["JavaScript", "Node.js", "React.js", "Tailwind CSS", "MongoDB", "Express.js"]
   }
+  
 ];
 
 const ExperienceSection = () => {

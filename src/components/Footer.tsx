@@ -19,7 +19,7 @@ const Footer = () => {
                 className="flex items-center mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <span className="text-xl md:text-2xl font-bold text-gradient">Dev.Portfolio</span>
+                <span className="text-xl md:text-2xl font-bold text-gradient">Golu Singh</span>
               </motion.div>
               
               <p className="text-muted-foreground mb-4">
@@ -27,16 +27,15 @@ const Footer = () => {
               </p>
               
               <div className="flex space-x-4">
-                {['github', 'linkedin', 'twitter', 'dribbble'].map((social) => (
-                  <motion.a
+                {['g', 'o', 'l', 'u'].map((social) => (
+                  <motion.div
                     key={social}
-                    href="#"
                     className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center"
                     whileHover={{ y: -5 }}
                     whileTap={{ scale: 0.9 }}
                   >
                     <span className="text-xs">{social[0].toUpperCase()}</span>
-                  </motion.a>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -63,15 +62,15 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
               
               <ul className="space-y-2 text-muted-foreground">
-                <li>john.developer@example.com</li>
-                <li>San Francisco, CA</li>
-                <li>+1 (123) 456-7890</li>
+                <li>637golusingh@gmai.com</li>
+                <li>Bhubaneshwar, Odisha</li>
+                <li>+91 6371790702</li>
               </ul>
             </div>
           </div>
           
           <div className="mt-10 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} John Developer. All Rights Reserved.</p>
+            <p>© {new Date().getFullYear()} Golu Singh. All Rights Reserved.</p>
           </div>
         </motion.div>
       </div>

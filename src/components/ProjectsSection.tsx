@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 
@@ -14,44 +13,37 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce solution with React, Node.js, and Stripe integration.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    url: "#",
+    title: "CraftfossLabs",
+    description: "CraftfossLabs is an open-source platform built on Next.js. Our main website features an automated blog section and key refinements aimed at enhancing user experience and performance. We've implemented robust SEO strategies using Meta Tags and OG tags to improve visibility. With a seamless integration of MongoDB, Feedback System, and an Admin Panel. The platform is optimized for both security and performance, with backend powered by Node.js and Express JS. Additionally, our deployment pipeline on Vercel is streamlined to minimize conflicts, ensuring smooth CI/CD workflows.",
+    image: "/assets/craftfosslabs.png",
+    tags: ["NEXT JS", "FRAMER MOTION", "MONGODB", "TAILWIND CSS"],
+    url: "http://craftfosslabs.com/"    
   },
   {
     id: 2,
-    title: "Social Media Dashboard",
-    description: "Real-time analytics dashboard for social media accounts with data visualization.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "TypeScript", "Firebase", "D3.js"],
-    url: "#",
+title: "Free API Tools",
+description: "Free API Tools offers a suite of over 12 powerful APIs, including features like Location Finder, File Converter, QR Code Generator, and more. Designed to provide developers with quick and reliable solutions, this platform is built with React.js, Express.js, and MongoDB. The site is also Progressive Web App (PWA) enabled for seamless experiences across devices. Hosted on a VPS, the tools are optimized for real-time performance and scalability, allowing users to integrate them into their applications effortlessly.",
+image: "/assets/FREE_API.png",
+tags: ["REACT JS", "EXPRESS JS", "MONGODB", "VPS", "PWA"],
+url: "https://freeapi.craftfosslabs.com/"
   },
   {
     id: 3,
-    title: "AI Code Assistant",
-    description: "An AI-powered coding assistant that helps developers write better code.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "React", "TensorFlow", "OpenAI"],
-    url: "#",
+title: "Tools For Professional Developers",
+description: "Tools For Professional Developers is a platform that hosts four powerful applications designed to enhance productivity for developers. These include a Code Share tool with a VS Code-like design for seamless code sharing, a Finance Planner to manage expenses and budgets, a Task Manager featuring drag-and-drop functionality for efficient task management, and a Video Downloader supporting downloads from multiple platforms. Built with React.js, Express.js, and MongoDB, and optimized as a Progressive Web App (PWA), these tools are hosted on a VPS for fast and reliable performance.",
+image: "/assets/Tools.png",
+tags: ["REACT JS", "EXPRESS JS", "MONGODB", "VPS", "PWA"],
+url: "https://tools.craftfosslabs.com/"
+
   },
   {
     id: 4,
-    title: "Health Tracking App",
-    description: "Mobile app for tracking health metrics with personalized insights.",
-    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=800&q=80",
-    tags: ["React Native", "GraphQL", "AWS", "HealthKit"],
-    url: "#",
-  },
-  {
-    id: 5,
-    title: "Smart Home IoT Hub",
-    description: "Central hub for managing various smart home devices with voice commands.",
-    image: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?auto=format&fit=crop&w=800&q=80",
-    tags: ["IoT", "Node.js", "MQTT", "React"],
-    url: "#",
-  },
+    title: "Study Notion",
+    description: "Study Notion is an EdTech platform designed to help students track their academic progress and manage their study schedules. Hosted on Vercel, the platform offers personalized insights and analytics to help students optimize their learning habits. Built with React.js, Express.js, and MongoDB, Study Notion provides a seamless and interactive user experience for effective study management.",
+    image: "/assets/StudyNotion.png",
+    tags: ["REACT JS", "EXPRESS JS", "MONGODB" , "VERCEL"],
+    url: "https://pathshala-ruby.vercel.app/"
+  }
 ];
 
 const ProjectsSection = () => {
@@ -113,7 +105,7 @@ const ProjectCard = ({ project, isFocused, setFocusedId }: ProjectCardProps) => 
 
   return (
     <motion.div
-      className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] glass-card rounded-xl overflow-hidden"
+      className="w-full md:w-[calc(50%-1rem)]  glass-card rounded-xl overflow-hidden"
       style={{ x, y }}
       drag="x"
       dragConstraints={{ left: -50, right: 50 }}
@@ -172,6 +164,7 @@ const ProjectCard = ({ project, isFocused, setFocusedId }: ProjectCardProps) => 
         
         <motion.a
           href={project.url}
+          target='blank'
           className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
