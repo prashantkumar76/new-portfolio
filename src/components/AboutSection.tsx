@@ -23,7 +23,7 @@ const AboutSection = () => {
     setIsLoader(false);
   };
   return (
-    <section id="about" ref={sectionRef} className="py-20 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="md:py-20 py-12 relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"

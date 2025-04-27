@@ -1,10 +1,12 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
+import { useForm, ValidationError } from '@formspree/react';
+import { GithubIcon, Instagram, LinkedinIcon, Loader, TwitterIcon } from 'lucide-react';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [state, handleSubmit] = useForm("mpwdwnzn");
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -13,65 +15,46 @@ const ContactSection = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
+    setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmitWrapper = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus('submitting');
+    await handleSubmit(e);
     
-    // Simulate form submission
-    setTimeout(() => {
+    if (state.succeeded) {
       setFormStatus('success');
-      setFormState({
-        name: '',
-        email: '',
-        message: '',
-      });
-      toast({
-        title: "Message sent successfully!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-    }, 1500);
+      toast({ title: 'Success!', description: 'Your message has been sent.', variant: 'success' });
+      setFormState({ name: '', email: '', message: '' });
+    } else if (state.errors.length > 0) {
+      setFormStatus('error');
+      toast({ title: 'Error!', description: 'Please check your form and try again.', variant: 'destructive' });
+    }
   };
 
   const inputVariants = {
-    focus: { 
-      scale: 1.02, 
-      boxShadow: "0 0 0 2px rgba(112, 48, 255, 0.6)",
-      transition: { duration: 0.2 }
-    },
-    blur: { 
-      scale: 1, 
-      boxShadow: "none",
-      transition: { duration: 0.2 }
-    }
+    focus: { scale: 1.02, boxShadow: "0 0 0 2px rgba(112, 48, 255, 0.6)", transition: { duration: 0.2 } },
+    blur: { scale: 1, boxShadow: "none", transition: { duration: 0.2 } }
   };
 
   const buttonVariants = {
     idle: {},
-    submitting: {
-      scale: 0.98,
-    },
-    success: {
-      scale: 1,
-      backgroundColor: "rgb(34, 197, 94)",
-      transition: { duration: 0.3 }
-    },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 0 20px rgba(112, 48, 255, 0.6)",
-    },
-    tap: {
-      scale: 0.95
-    }
+    submitting: { scale: 0.98 },
+    success: { scale: 1, backgroundColor: "rgb(34, 197, 94)", transition: { duration: 0.3 } },
+    hover: { scale: 1.05, boxShadow: "0 0 20px rgba(112, 48, 255, 0.6)" },
+    tap: { scale: 0.95 }
   };
-  
+
+  const socialIcons = [
+    { icon: <GithubIcon />, link: "https://github.com/yourgithub" },
+    { icon: <LinkedinIcon />, link: "https://linkedin.com/in/yourlinkedin" },
+    { icon: <TwitterIcon />, link: "https://twitter.com/yourtwitter" },
+    { icon: <Instagram />, link: "https://instagram.com/yourinsta" },
+  ];
+
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section id="contact" className="md:py-20 py-12 relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"
@@ -84,6 +67,7 @@ const ContactSection = () => {
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
+          {/* Form Section */}
           <motion.div
             className="order-2 md:order-1"
             initial={{ opacity: 0, x: -50 }}
@@ -91,7 +75,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmitWrapper} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name
@@ -108,8 +92,9 @@ const ContactSection = () => {
                   whileFocus="focus"
                   initial="blur"
                 />
+                <ValidationError prefix="Name" field="name" errors={state.errors} />
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
                   Your Email
@@ -126,8 +111,9 @@ const ContactSection = () => {
                   whileFocus="focus"
                   initial="blur"
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Your Message
@@ -144,24 +130,28 @@ const ContactSection = () => {
                   whileFocus="focus"
                   initial="blur"
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
-              
+
               <motion.button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg disabled:opacity-70"
-                disabled={formStatus === 'submitting'}
+                className="w-full px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg disabled:opacity-70 flex items-center justify-center gap-2"
+                disabled={state.submitting}
                 variants={buttonVariants}
                 animate={formStatus}
                 whileHover="hover"
                 whileTap="tap"
               >
-                {formStatus === 'submitting' ? 'Sending...' : 
-                 formStatus === 'success' ? 'Sent Successfully!' : 
-                 'Send Message'}
+                {formStatus === 'submitting' ? (
+                  <>
+                   Sending... <Loader className='animate-spin'/> 
+                  </>
+                ) : formStatus === 'success' ? 'Sent Successfully!' : 'Send Message'}
               </motion.button>
             </form>
           </motion.div>
-          
+
+          {/* Contact Info Section */}
           <motion.div
             className="order-1 md:order-2 text-center md:text-left"
             initial={{ opacity: 0, x: 50 }}
@@ -170,49 +160,52 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             <div className="glass-card p-8 rounded-xl">
-              <motion.div 
+              <motion.div
                 className="inline-block mb-6 text-4xl"
                 animate={{ rotate: [0, 20, 0, -20, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, delay: 1 }}
               >
                 👋
               </motion.div>
-              
+
               <h3 className="text-2xl font-semibold mb-4">
                 Let's Collaborate
               </h3>
-              
+
               <p className="text-muted-foreground mb-6">
-                Have a project idea or job opportunity? I'm currently available for freelance work and full-time positions.
+                Have a project idea or opportunity? I'm available for freelance work and full-time roles.
               </p>
-              
+
               <div className="space-y-4">
                 <div>
                   <p className="font-medium">Email</p>
                   <p className="text-primary">637golusingh@gmail.com</p>
                 </div>
-                
+
                 <div>
                   <p className="font-medium">Based in</p>
-                  <p className="text-muted-foreground">Bhubaneswar , Odisha</p>
+                  <p className="text-muted-foreground">Bhubaneswar, Odisha</p>
                 </div>
-                
+
                 <div className="flex justify-center md:justify-start space-x-4 pt-4">
-                  {['g', 'o', 'l', 'u'].map((social) => (
-                    <motion.div
-                      key={social}
+                  {socialIcons.map(({ icon, link }, idx) => (
+                    <motion.a
+                      key={idx}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
                       whileHover={{ y: -5, scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      {/* Placeholder for social icons */}
-                      <span className="text-xs">{social[0].toUpperCase()}</span>
-                    </motion.div>
+                      {icon}
+                    </motion.a>
                   ))}
                 </div>
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

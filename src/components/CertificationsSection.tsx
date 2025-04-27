@@ -14,7 +14,7 @@ interface Certification {
 const CERTIFICATIONS: Certification[] = [
   {
     id: 1,
-    name: "Mern Stack Certified Web Development",
+    name: "Mern Stack Certified",
     issuer: "CodeHelp",
     date: "2023",
     description: "Certified in full-stack web development using the MERN stack, mastering MongoDB, Express.js, React.js, and Node.js with industry-level projects.",
@@ -32,7 +32,7 @@ const CERTIFICATIONS: Certification[] = [
   },
   {
     id: 3,
-    name: "SEO",
+    name: "Advance SEO",
     issuer: "Tutorial Point",
     date: "Mar 2024",
     description: "Certified in Search Engine Optimization (SEO) strategies including on-page SEO, technical SEO, link building, and analytics tools.",
@@ -41,7 +41,7 @@ const CERTIFICATIONS: Certification[] = [
   },
   {
     id: 4,
-    name: "SQL",
+    name: "Essential SQL",
     issuer: "Linkedin",
     date: "Mar 2024",
     description: "Certified in SQL database management, mastering data querying, relational databases, normalization, and advanced SQL operations.",
@@ -55,7 +55,7 @@ const CertificationsSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="certifications" className="py-20 relative overflow-hidden">
+    <section id="certifications" className="md:py-20 py-12 relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"

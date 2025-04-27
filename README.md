@@ -3,7 +3,6 @@
 ## 📄 Project Info
 
 **URL**: [https://golu.craftfosslabs.com/](https://golu.craftfosslabs.com)  
-*(Replace with your real domain once ready)*
 
 ---
 
