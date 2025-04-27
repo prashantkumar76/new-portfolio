@@ -2,7 +2,7 @@
 
 ## 📄 Project Info
 
-**URL**: [https://your-portfolio-link.com](https://your-portfolio-link.com)  
+**URL**: [https://golu.craftfosslabs.com/](https://golu.craftfosslabs.com)  
 *(Replace with your real domain once ready)*
 
 ---
@@ -18,7 +18,7 @@ Make changes using Visual Studio Code (VSCode) or any IDE you like.
 #### Steps:
 ```bash
 # Step 1: Clone the repository
-git clone <YOUR_GIT_URL>
+git clone "https://github.com/1sisodiyaji/portfolio-golu.git"
 
 # Step 2: Navigate to the project directory
 cd golu-portfolio
@@ -69,7 +69,7 @@ Once your changes are ready:
 - Push to GitHub ➔ GitHub Actions will auto-deploy (if configured)
 - Or manually deploy using [Vercel](https://vercel.com) or your own hosting.
 
-You can also connect a custom domain like `golusingh.dev` or `craftfosslabs.com`.
+You can also connect a custom domain like `golu.craftfosslabs.com`.
 
 ---
 
@@ -85,4 +85,4 @@ You can also connect a custom domain like `golusingh.dev` or `craftfosslabs.com`
 📞 **Phone**: +91-6371790702  
 📧 **Email**: 637golusingh@gmail.com  
 🔗 **LinkedIn**: [linkedin.com/in/golu-singh](https://linkedin.com) *(update your real link)*  
-🐙 **GitHub**: [github.com/yourgithub](https://github.com) *(update your real link)*  
+🐙 **GitHub**: [github.com/1sisodiyaji](https://github.com) *(update your real link)*  
