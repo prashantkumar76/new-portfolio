@@ -15,7 +15,7 @@ const AboutSection = () => {
   const handleDownloadResume = () => {
     setIsLoader(true);
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/assets/Golu_Singh.pdf';
     link.download = 'Golu_Singh_Resume.pdf';
     document.body.appendChild(link);
     link.click();

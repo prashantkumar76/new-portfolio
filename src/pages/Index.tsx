@@ -9,6 +9,7 @@ import ExperienceSection from '../components/ExperienceSection';
 import CertificationsSection from '../components/CertificationsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import SkillList from '../components/SkillList'
 import { ThemeProvider } from '../components/ThemeProvider';
 
 const Index = () => {
@@ -35,6 +36,7 @@ const Index = () => {
           <HeroSection />
           <AboutSection />
           <SkillsSection />
+          <SkillList/>
           <ProjectsSection />
           <ExperienceSection />
           <CertificationsSection />
