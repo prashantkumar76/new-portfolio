@@ -68,7 +68,7 @@ const Navbar = () => {
             </motion.button>
           
             <motion.button
-              className="hidden md:block p-2 rounded-full"
+              className="p-2 rounded-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
