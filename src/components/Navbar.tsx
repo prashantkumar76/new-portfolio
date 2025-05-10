@@ -98,7 +98,7 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed top-0 left-0 w-64 h-full bg-background shadow-lg z-[1000] p-6 flex flex-col space-y-6"
           >
-            <div className="flex justify-between items-center mb-4 bg-white">
+            <div className="flex justify-between items-center mb-4">
               <span className="text-xl font-bold">Menu</span>
               <button onClick={() => setMobileMenuOpen(false)}>
                 <X className="w-6 h-6" />

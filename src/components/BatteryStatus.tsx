@@ -68,6 +68,7 @@ const BatteryStatus: React.FC = () => {
             if (nav.getBattery) {
                 try {
                     const battery = await nav.getBattery();
+                    console.log(battery);
                     const update = () => {
                         const batteryLevel = battery.level;
                         const batteryCharging = battery.charging;
@@ -100,6 +101,7 @@ const BatteryStatus: React.FC = () => {
             const nav = navigator as NavigatorWithConnection;
             const connection = nav.connection || nav.mozConnection || nav.webkitConnection;
             if (connection) {
+                console.log(connection);
                 setNetworkInfo({
                     downlink: connection.downlink || 0,
                     rtt: connection.rtt || 0,
