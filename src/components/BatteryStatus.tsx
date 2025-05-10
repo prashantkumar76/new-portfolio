@@ -129,10 +129,10 @@ const BatteryStatus: React.FC = () => {
     }, []);
 
     const BatteryIcon = () => {
-        if (charging) return <BatteryCharging className="md:w-5 md:h-5 w-2 h-2 text-green-500" />;
-        if (level > 70) return <BatteryFull className="md:w-5 md:h-5 w-2 h-2 text-green-500" />;
-        if (level > 30) return <BatteryMedium className="md:w-5 md:h-5 w-2 h-2 text-yellow-500" />;
-        return <BatteryLow className="md:w-5 md:h-5 w-2 h-2 text-red-500" />;
+        if (charging) return <BatteryCharging className="w-5 h-5 text-green-500" />;
+        if (level > 70) return <BatteryFull className="w-5 h-5 text-green-500" />;
+        if (level > 30) return <BatteryMedium className="w-5 h-5 text-yellow-500" />;
+        return <BatteryLow className="w-5 h-5 text-red-500" />;
     };
 
 
@@ -141,20 +141,20 @@ const BatteryStatus: React.FC = () => {
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                     <BatteryIcon />
-                    <span className="text-xs font-medium">{isNaN(level) ? 'N/A' : `${level}%`}</span>
+                    <span className="text-sm font-medium">{isNaN(level) ? 'N/A' : `${level}%`}</span>
                 </div>
             </div>
 
-            <div className="flex items-center justify-between space-x-2 text-xs font-medium">
-                <Download className='md:w-5 md:h-5 w-2 h-2 text-green-400' />  <span> {networkInfo.downlink.toFixed(2)} Mbps</span>
+            <div className="flex items-center justify-between space-x-2 text-sm font-medium">
+                <Download className='w-5 h-5 text-green-400' />  <span> {networkInfo.downlink.toFixed(2)} Mbps</span>
             </div>
 
-            <div className="flex items-center justify-between space-x-2 text-xs font-medium">
-                <WavesIcon className='md:w-5 md:h-5 w-2 h-2 text-green-400' /> <span>{networkInfo.rtt} ms</span>
+            <div className="flex items-center justify-between space-x-2 text-sm font-medium">
+                <WavesIcon className='w-5 h-5 text-green-400' /> <span>{networkInfo.rtt} ms</span>
             </div>
 
-            <div className="flex items-center justify-between space-x-2 text-xs font-medium">
-                <Signal className='md:w-5 md:h-5 w-2 h-2 text-green-400' />  <span>{networkInfo.effectiveType}</span>
+            <div className="flex items-center justify-between space-x-2 text-sm font-medium">
+                <Signal className='w-5 h-5 text-green-400' />  <span>{networkInfo.effectiveType}</span>
             </div>
         </div>
     );

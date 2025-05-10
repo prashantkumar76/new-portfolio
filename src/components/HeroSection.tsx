@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import BatteryStatus from './BatteryStatus';
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -83,6 +84,10 @@ const HeroSection = () => {
               animate="visible"
               variants={typingVariants}
             >
+              <div className="block md:hidden">
+              <BatteryStatus/>
+              </div>
+             
               <motion.p 
                 className="text-lg md:text-xl mb-4 text-primary"
                 variants={letterVariants}

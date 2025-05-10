@@ -42,7 +42,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto md:px-0 px-4 flex justify-between items-center">
           <motion.div
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
@@ -68,7 +68,7 @@ const Navbar = () => {
             </motion.button>
           
             <motion.button
-              className="p-2 rounded-full"
+              className="hidden md:block p-2 rounded-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
