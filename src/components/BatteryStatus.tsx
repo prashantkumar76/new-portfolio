@@ -141,7 +141,7 @@ const BatteryStatus: React.FC = () => {
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                     <BatteryIcon />
-                    <span className="text-sm font-medium">{isNaN(level) ? 'N/A' : `${level}%`}</span>
+                    <span className="text-xs font-medium">{isNaN(level) ? 'N/A' : `${level}%`}</span>
                 </div>
             </div>
 
