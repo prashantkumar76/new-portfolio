@@ -1,87 +1,37 @@
-# Welcome to Golu Singh's Portfolio 🚀
+# Golu Singh - Software Engineer & Freelance Innovator
 
-## 📄 Project Info
+Hi there! 👋 I'm **Golu Singh**, a passionate **Software Engineer**, **UI/UX Designer**, and **JS Framework Developer**. I specialize in building dynamic and interactive web applications, with a keen eye for design and user experience.
 
-**URL**: [https://golu.craftfosslabs.com/](https://golu.craftfosslabs.com)  
+### 🚀 Current Position:
+- **Software Engineer** at [Vis Network](https://visnet.in/)
+- **Freelance Innovator | UI/UX Designer & JS Framework Developer**
+- **Ex-Intern** at [Wooble 🚀](https://wooble.org/)
 
----
+### 📞 Contact Me:
+- **Phone**: [ +91-6371790702](tel:+916371790702)
+- **Email**: [637golusingh@gmail.com](mailto:637golusingh@gmail.com)
 
-## ✍ How can I edit this code?
-
-You can update and manage your portfolio easily using these methods:
-
-### 1. **Work Locally with Your Favorite IDE**
-
-Make changes using Visual Studio Code (VSCode) or any IDE you like.
-
-#### Steps:
-```bash
-# Step 1: Clone the repository
-git clone "https://github.com/1sisodiyaji/portfolio-golu.git"
-
-# Step 2: Navigate to the project directory
-cd golu-portfolio
-
-# Step 3: Install project dependencies
-npm install
-
-# Step 4: Run the development server
-npm run dev
-```
-
-👉 Changes will auto-refresh as you save files!
+### 🔗 Connect with Me:
+- [LinkedIn](https://www.linkedin.com/in/golu-singh/)
+- [GitHub](https://github.com/1sisodiyaji)
 
 ---
 
-### 2. **Direct Edits on GitHub**
-
-- Open any file on GitHub.
-- Click the ✏️ (Edit) icon.
-- Make changes and commit.
+Feel free to reach out to me for any collaboration, freelancing opportunities, or simply to connect! 😊
 
 ---
 
-### 3. **Use GitHub Codespaces (Optional)**
+### Technologies I Work With:
+- JavaScript (React, Node.js, Express)
+- UI/UX Design (Figma, Sketch, Adobe XD)
+- Frontend Development (HTML, CSS, TailwindCSS, JavaScript frameworks)
+- Backend Development (Node.js, MongoDB, etc.)
 
-- Open the repository on GitHub.
-- Click the "Code" button ➔ "Codespaces" tab ➔ "New codespace".
-- You can develop in the browser without local setup!
-
----
-
-## 🚀 Technologies Used
-
-This portfolio is crafted with love and cutting-edge tools:
-
-- **Frontend**: React.js (with TypeScript)
-- **Design**: Tailwind CSS, shadcn-ui components
-- **Tooling**: Vite
-- **Version Control**: Git & GitHub
-- **Hosting**: Vercel / Custom Domain
+### Projects:
+- [CraftFossLabs](https://craftfosslabs.com/) - An open-source ecosystem of developer tools and APIs.
+- [My Portfolio](https://golu-singh.com) - Showcase of my projects and contributions.
 
 ---
 
-## 🌍 How to Deploy
+*Feel free to explore my repositories and see what I'm working on!*
 
-Once your changes are ready:
-
-- Push to GitHub ➔ GitHub Actions will auto-deploy (if configured)
-- Or manually deploy using [Vercel](https://vercel.com) or your own hosting.
-
-You can also connect a custom domain like `golu.craftfosslabs.com`.
-
----
-
-## ✨ Special Notes
-
-- Built and maintained by **Golu Singh**.
-- Open-source contributions are welcome if you want to extend it!
-
----
-
-# 🚀 Let's Connect!
-
-📞 **Phone**: +91-6371790702  
-📧 **Email**: 637golusingh@gmail.com  
-🔗 **LinkedIn**: [linkedin.com/in/golu-singh](https://linkedin.com) *(update your real link)*  
-🐙 **GitHub**: [github.com/1sisodiyaji](https://github.com) *(update your real link)*  
