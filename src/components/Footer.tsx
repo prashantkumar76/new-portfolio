@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="py-12 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <footer className="relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          className="glass-card rounded-xl p-8"
+          className="glass-card rounded-xl md:p-8 p-3"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

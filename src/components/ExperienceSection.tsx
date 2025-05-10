@@ -53,7 +53,7 @@ const EXPERIENCES: Experience[] = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="md:py-20 py-12 relative overflow-hidden">
+    <section id="experience" className="relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"

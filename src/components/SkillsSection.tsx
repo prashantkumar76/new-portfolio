@@ -38,7 +38,7 @@ const SkillsSection = () => {
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
 
   return (
-    <section id="skills" className="pt-20">
+    <section id="skills">
       <div className='section-container'>
         <motion.h2
           className="section-title text-gradient"

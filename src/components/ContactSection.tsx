@@ -27,7 +27,7 @@ const ContactSection = () => {
       setFormStatus('success');
       toast({ title: 'Success!', description: 'Your message has been sent.', variant: 'success' });
       setFormState({ name: '', email: '', message: '' });
-    } else if (state.errors.length > 0) {
+    } else if (state.errors?.length > 0) {
       setFormStatus('error');
       toast({ title: 'Error!', description: 'Please check your form and try again.', variant: 'destructive' });
     }
@@ -54,7 +54,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="md:py-20 py-12 relative overflow-hidden">
+    <section id="contact" className="relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"

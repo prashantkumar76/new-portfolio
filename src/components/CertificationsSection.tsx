@@ -55,7 +55,7 @@ const CertificationsSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="certifications" className="md:py-20 py-12 relative overflow-hidden">
+    <section id="certifications" className="relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"

@@ -44,7 +44,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background particles */}
       <div className="absolute inset-0 -z-10">
         {Array.from({ length: 20 }).map((_, i) => (
@@ -73,7 +73,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           <motion.div 
-            className="lg:w-1/2"
+            className="lg:w-1/2 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -90,7 +90,7 @@ const HeroSection = () => {
                 Hello, I'm
               </motion.p>
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-4"
+                className="text-2xl md:text-6xl font-bold mb-4"
                 variants={typingVariants}
               >
                 {"Golu Singh".split('').map((char, index) => (
@@ -106,11 +106,12 @@ const HeroSection = () => {
                 <span className="typing-demo">Software Engineer</span>
               </motion.div>
               <motion.p 
-                className="text-muted-foreground mb-8 max-w-lg"
+                className="text-muted-foreground mb-8 md:max-w-lg w-full"
                 variants={letterVariants}
               >
-                Software enginner at <a href='https://visnet.in/' className='hover:border-b border-blue-400' target='blank' >Vis Network  </a>& Freelance Innovator | UI/UX Designer & JS Framework Developer| Ex-Intern <a href='https://wooble.org/' className='hover:border-b border-blue-400' target='blank'> @Wooble 🚀  </a> <br/>
-               <span className="flex items-center gap-2">
+                Software enginner at <a href='https://visnet.in/' className='hover:border-b border-blue-400' target='blank' >Vis Network  </a>
+                & Freelance Innovator | UI/UX Designer & JS Framework Developer| Ex-Intern <a href='https://wooble.org/' className='hover:border-b border-blue-400' target='blank'> @Wooble 🚀  </a> <br/>
+               <span className="flex items-center gap-2 flex-wrap">
                 <a href="tel:+916371790702" className='hover:border-b border-blue-400' >+91-6371790702</a> | 
                 <a href="mailto:637golusingh@gmail.com" className='hover:border-b border-blue-400' >637golusingh@gmail.com</a> | 
                 <a href='https://www.linkedin.com/in/golu-singh/' target='blank' className='hover:border-b border-blue-400' >LinkedIn</a> | 
@@ -122,7 +123,7 @@ const HeroSection = () => {
                 variants={letterVariants}
               >
                 <motion.a
-                  className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium"
+                  className="md:px-6 md:py-3 px-2 py-1 rounded-lg bg-primary text-primary-foreground font-medium"
                   whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(112, 48, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
                   href='#projects'
@@ -131,7 +132,7 @@ const HeroSection = () => {
                 </motion.a>
                 <motion.a
                 href='#contact'
-                  className="px-6 py-3 rounded-lg border border-primary text-primary font-medium"
+                  className="md:px-6 md:py-3 px-2 py-1 rounded-lg border border-primary text-primary font-medium"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -143,7 +144,7 @@ const HeroSection = () => {
 
           <div className="lg:w-1/2 flex justify-center">
             <motion.div
-              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-neon-purple to-neon-blue p-1"
+              className="relative w-48 h-48 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-neon-purple to-neon-blue p-1"
               style={{
                 transform: `perspective(1000px) rotateY(${mousePosition.x * 10}deg) rotateX(${-mousePosition.y * 10}deg)`,
               }}

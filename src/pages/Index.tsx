@@ -32,7 +32,7 @@ const Index = () => {
     <ThemeProvider>
       <div className="relative min-h-screen overflow-hidden">
         <Navbar />
-        <main>
+        <main className='md:space-y-24 space-y-12'>
           <HeroSection />
           <AboutSection />
           <SkillsSection />

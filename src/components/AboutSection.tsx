@@ -23,7 +23,7 @@ const AboutSection = () => {
     setIsLoader(false);
   };
   return (
-    <section id="about" ref={sectionRef} className="md:py-20 py-12 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"
@@ -45,7 +45,7 @@ const AboutSection = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 flex items-center justify-center text-6xl font-bold text-primary">
+              <div className="w-full h-full bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 flex items-center justify-center md:text-6xl text-2xl font-bold text-primary">
                 Hey Visitors
               </div>
             </motion.div>
@@ -97,7 +97,7 @@ const AboutSection = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className='mx-auto max-w-7xl flex justify-center items-center'
+        className='mx-auto max-w-7xl flex justify-center items-center px-2'
       >
         <GitHubCalendar
           username="1sisodiyaji"

@@ -50,7 +50,7 @@ const ProjectsSection = () => {
   const [focusedId, setFocusedId] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
+    <section id="projects" className="relative overflow-hidden">
       <div className="section-container">
         <motion.h2
           className="section-title text-gradient"
