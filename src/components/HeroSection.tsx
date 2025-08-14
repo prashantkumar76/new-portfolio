@@ -162,7 +162,7 @@ const HeroSection = () => {
             >
               <div className="w-full h-full rounded-full overflow-hidden bg-background">
                 <div className="w-full h-full bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 flex items-center justify-center text-4xl font-bold text-primary">
-                  <img src="https://media.licdn.com/dms/image/v2/D5603AQERSJM-YRt9VA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1704539684519?e=1751500800&v=beta&t=4PQ96uOEs9EZAzy-Z_lpkPRogOnbG4_lbHoz-yBIUmw" alt="Golu Singh" title='Golu Singh' loading='lazy' className='w-full h-full rounded-full' />
+                  <img src="/android-chrome-512x512.png" alt="Golu Singh" title='Golu Singh' loading='lazy' className='w-full h-full rounded-full' />
                 </div>
               </div>
               {/* Animated particles around the avatar */}
