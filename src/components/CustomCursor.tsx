@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import { VisitorInfo } from "@/lib/Types";
 
-interface VisitorInfo {location: string;}
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });

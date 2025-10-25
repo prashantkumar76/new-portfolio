@@ -1,53 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {
-    BatteryFull,
-    BatteryMedium,
-    BatteryLow,
-    BatteryCharging,
-    Wifi,
-    WifiOff,
-    Signal,
-    SignalMedium,
-    SignalLow,
-    Download,
-    Network,
-    LucideVoicemail,
-    WavesIcon,
-} from 'lucide-react';
-
-interface MyBatteryManager extends EventTarget {
-    charging: boolean;
-    level: number; // value between 0 and 1
-    onlevelchange: ((this: MyBatteryManager, ev: Event) => void) | null;
-    onchargingchange: ((this: MyBatteryManager, ev: Event) => void) | null;
-    addEventListener: (
-        type: 'levelchange' | 'chargingchange',
-        listener: (this: MyBatteryManager, ev: Event) => void
-    ) => void;
-}
-
-interface NetworkInfo {
-    downlink: number;
-    rtt: number;
-    effectiveType: string;
-    saveData: boolean;
-}
-
-interface NetworkConnection extends EventTarget {
-    type: string;
-    effectiveType: string;
-    downlink: number;
-    rtt: number;
-    saveData: boolean;
-    addEventListener: (type: string, listener: EventListener) => void;
-    removeEventListener: (type: string, listener: EventListener) => void;
-}
-
-interface NavigatorWithConnection extends Navigator {
-    connection?: NetworkConnection;
-    mozConnection?: NetworkConnection;
-    webkitConnection?: NetworkConnection;
-}
+import { useEffect, useState } from 'react';
+import { BatteryFull, BatteryMedium, BatteryLow, BatteryCharging, Signal, Download, WavesIcon,} from 'lucide-react';
+import { MyBatteryManager, NavigatorWithConnection, NetworkInfo } from '@/lib/Types';
 
 const BatteryStatus: React.FC = () => {
     const [level, setLevel] = useState<number>(100);

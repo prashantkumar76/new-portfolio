@@ -2,22 +2,24 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
 import { useForm, ValidationError } from '@formspree/react';
-import { GithubIcon, Instagram, LinkedinIcon, Loader, TwitterIcon } from 'lucide-react';
+import { Loader } from 'lucide-react';
+import { socialIcons } from '@/lib/Constant';
+import { buttonVariants, inputVariants } from '@/lib/Animations';
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [state, handleSubmit] = useForm("mpwdwnzn");
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formState, setFormState] = useState({
     name: '',
     email: '',
     message: '',
   });
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
-
   const handleSubmitWrapper = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus('submitting');
@@ -25,33 +27,13 @@ const ContactSection = () => {
     
     if (state.succeeded) {
       setFormStatus('success');
-      toast({ title: 'Success!', description: 'Your message has been sent.', variant: 'success' });
+      toast({ title: 'Success!', description: 'Your message has been sent.', variant: 'default' });
       setFormState({ name: '', email: '', message: '' });
-    } else if (state.errors?.length > 0) {
+    } else if (Object.keys(state.errors).length > 0) {
       setFormStatus('error');
       toast({ title: 'Error!', description: 'Please check your form and try again.', variant: 'destructive' });
     }
   };
-
-  const inputVariants = {
-    focus: { scale: 1.02, boxShadow: "0 0 0 2px rgba(112, 48, 255, 0.6)", transition: { duration: 0.2 } },
-    blur: { scale: 1, boxShadow: "none", transition: { duration: 0.2 } }
-  };
-
-  const buttonVariants = {
-    idle: {},
-    submitting: { scale: 0.98 },
-    success: { scale: 1, backgroundColor: "rgb(34, 197, 94)", transition: { duration: 0.3 } },
-    hover: { scale: 1.05, boxShadow: "0 0 20px rgba(112, 48, 255, 0.6)" },
-    tap: { scale: 0.95 }
-  };
-
-  const socialIcons = [
-    { icon: <GithubIcon />, link: "https://github.com/yourgithub" },
-    { icon: <LinkedinIcon />, link: "https://linkedin.com/in/yourlinkedin" },
-    { icon: <TwitterIcon />, link: "https://twitter.com/yourtwitter" },
-    { icon: <Instagram />, link: "https://instagram.com/yourinsta" },
-  ];
 
   return (
     <section id="contact" className="relative overflow-hidden">

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import BatteryStatus from './BatteryStatus';
+import { letterVariants, typingVariants } from '@/lib/Animations';
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -18,25 +19,6 @@ const HeroSection = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const typingVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3 }
-    },
-  };
-
   const scrollDown = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -46,7 +28,6 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background particles */}
       <div className="absolute inset-0 -z-10">
         {Array.from({ length: 20 }).map((_, i) => (
           <motion.div

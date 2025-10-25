@@ -1,6 +1,5 @@
-import React from 'react'
-import { Bolt, Boxes, Chrome, Code, Database } from 'lucide-react';
 import {motion} from 'framer-motion';
+import { SKILL_LIST_DATA } from '@/lib/Constant';
 
 const SkillList = () => {
     return (
@@ -8,33 +7,7 @@ const SkillList = () => {
             <section className="relative overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-3 gap-8 mt-">
-                        {[
-                            {
-                                title: "Programming Languages",
-                                skills: ["C", "Java", "PHP", "Node.js"],
-                                icon: <Code />
-                            },
-                            {
-                                title: "Database & Design",
-                                skills: ["SQL", "MongoDB", "Figma", "Photopea"],
-                                icon: <Database />
-                            },
-                            {
-                                title: "Web Technologies",
-                                skills: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Bootstrap"],
-                                icon: <Chrome />
-                            },
-                            {
-                                title: "Frameworks",
-                                skills: ["Next.js", "Express.js", "React.js"],
-                                icon: <Boxes />
-                            },
-                            {
-                                title: "Tools",
-                                skills: ["Git", "Docker", "Postman", "Google Cloud", "Cursor", "Miro"],
-                                icon: <Bolt />
-                            }
-                        ].map((category, index) => (
+                        {SKILL_LIST_DATA.map((category, index) => (
                             <motion.div
                                 key={index}
                                 className="glass-card p-6 rounded-xl"

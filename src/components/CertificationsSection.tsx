@@ -1,55 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Dialog } from '@headlessui/react';
-interface Certification {
-  id: number;
-  name: string;
-  issuer: string;
-  date: string;
-  description: string;
-  image: string;
-  credentialId: string;
-}
-
-const CERTIFICATIONS: Certification[] = [
-  {
-    id: 1,
-    name: "Mern Stack Certified",
-    issuer: "CodeHelp",
-    date: "2023",
-    description: "Certified in full-stack web development using the MERN stack, mastering MongoDB, Express.js, React.js, and Node.js with industry-level projects.",
-    image: "/assets/mern-stack.png",
-    credentialId: "C0YPEALK"
-  },
-  {
-    id: 2,
-    name: "Basic Python",
-    issuer: "Hacker Rank",
-    date: "2022",
-    description: "Certified in Python fundamentals covering data structures, algorithms, and problem-solving skills for building scalable applications.",
-    image: "/assets/python.png",
-    credentialId: "BE6DF704F691"
-  },
-  {
-    id: 3,
-    name: "Advance SEO",
-    issuer: "Tutorial Point",
-    date: "Mar 2024",
-    description: "Certified in Search Engine Optimization (SEO) strategies including on-page SEO, technical SEO, link building, and analytics tools.",
-    image: "/assets/seo.jpg",
-    credentialId: "TP-QAREYIK9"
-  },
-  {
-    id: 4,
-    name: "Essential SQL",
-    issuer: "Linkedin",
-    date: "Mar 2024",
-    description: "Certified in SQL database management, mastering data querying, relational databases, normalization, and advanced SQL operations.",
-    image: "/assets/sql.jpg",
-    credentialId: "2370531df1977f673370c86a6db3aa658332183d2ad9060e48f1954541989c76"
-  }
-];
-
+import { CERTIFICATION_DATA } from '@/lib/Constant';
 
 const CertificationsSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -78,7 +30,7 @@ const CertificationsSection = () => {
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {CERTIFICATIONS.map((cert, index) => (
+          {CERTIFICATION_DATA.map((cert, index) => (
             <motion.div
               key={cert.id}
               className="glass-card p-6 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
