@@ -1,20 +1,15 @@
-"use client"
-
 import * as React from "react"
 import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-  Search,
   Moon,
   Sun,
   Laptop,
   Home,
   Briefcase,
   Code,
+  User,
+  Github,
+  Mail,
+  Award,
   FileText
 } from "lucide-react"
 
@@ -26,15 +21,12 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command"
 import { useTheme } from "next-themes"
-import { useNavigate } from "react-router-dom"
 
 export function CommandPalette() {
   const [open, setOpen] = React.useState(false)
   const { setTheme } = useTheme()
-  const navigate = useNavigate()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -48,9 +40,26 @@ export function CommandPalette() {
     return () => document.removeEventListener("keydown", down)
   }, [])
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const headerOffset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    }
+  }
+
   const runCommand = React.useCallback((command: () => void) => {
     setOpen(false)
-    command()
+    // Small delay to ensure dialog closes before scrolling
+    setTimeout(() => {
+      command()
+    }, 150)
   }, [])
 
   return (
@@ -69,35 +78,95 @@ export function CommandPalette() {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem onSelect={() => runCommand(() => navigate("/"))}>
+          <CommandGroup heading="Navigation">
+            <CommandItem 
+              onSelect={() => runCommand(() => window.scrollTo({ top: 0, behavior: "smooth" }))}
+              onClick={() => runCommand(() => window.scrollTo({ top: 0, behavior: "smooth" }))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
               <Home className="mr-2 h-4 w-4" />
               <span>Home</span>
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => navigate("/projects"))}>
-              <Briefcase className="mr-2 h-4 w-4" />
-              <span>Projects</span>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("about"))}
+              onClick={() => runCommand(() => scrollToSection("about"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
+              <User className="mr-2 h-4 w-4" />
+              <span>About</span>
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => navigate("/stack"))}>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("github"))}
+              onClick={() => runCommand(() => scrollToSection("github"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
+              <Github className="mr-2 h-4 w-4" />
+              <span>GitHub Activity</span>
+            </CommandItem>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("stack"))}
+              onClick={() => runCommand(() => scrollToSection("stack"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
               <Code className="mr-2 h-4 w-4" />
               <span>Tech Stack</span>
             </CommandItem>
-             <CommandItem onSelect={() => runCommand(() => navigate("/blog"))}>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("experience"))}
+              onClick={() => runCommand(() => scrollToSection("experience"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
+              <Briefcase className="mr-2 h-4 w-4" />
+              <span>Experience</span>
+            </CommandItem>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("certifications"))}
+              onClick={() => runCommand(() => scrollToSection("certifications"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
+              <Award className="mr-2 h-4 w-4" />
+              <span>Certifications</span>
+            </CommandItem>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("projects"))}
+              onClick={() => runCommand(() => scrollToSection("projects"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
               <FileText className="mr-2 h-4 w-4" />
-              <span>Blog</span>
+              <span>Projects</span>
+            </CommandItem>
+            <CommandItem 
+              onSelect={() => runCommand(() => scrollToSection("contact"))}
+              onClick={() => runCommand(() => scrollToSection("contact"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
+              <Mail className="mr-2 h-4 w-4" />
+              <span>Contact</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
           <CommandGroup heading="Theme">
-            <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
+            <CommandItem 
+              onSelect={() => runCommand(() => setTheme("light"))}
+              onClick={() => runCommand(() => setTheme("light"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
               <Sun className="mr-2 h-4 w-4" />
               <span>Light</span>
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
+            <CommandItem 
+              onSelect={() => runCommand(() => setTheme("dark"))}
+              onClick={() => runCommand(() => setTheme("dark"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
               <Moon className="mr-2 h-4 w-4" />
               <span>Dark</span>
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
+            <CommandItem 
+              onSelect={() => runCommand(() => setTheme("system"))}
+              onClick={() => runCommand(() => setTheme("system"))}
+              className="cursor-pointer aria-selected:cursor-pointer"
+            >
               <Laptop className="mr-2 h-4 w-4" />
               <span>System</span>
             </CommandItem>

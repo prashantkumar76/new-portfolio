@@ -5,14 +5,12 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Optional: Log the wrong path or send analytics
     console.warn("404 - Not Found:", location.pathname);
   }, [location.pathname]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white px-4">
       <div className="text-center max-w-lg">
-        {/* SVG Animation */}
         <svg
           className="mx-auto mb-6 text-red-500 animate-pulse"
           width="150"

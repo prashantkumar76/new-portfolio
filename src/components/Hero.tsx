@@ -27,7 +27,7 @@ export default function Hero() {
                 <div className="flex flex-1 flex-col justify-between">
                     <div className="flex flex-col p-4 gap-2">
                         <div className="flex items-center justify-between">
-                            <span className="text-sm text-muted-foreground font-mono">@golu-kumar</span>
+                            <span className="text-sm text-muted-foreground font-mono">@golu-singh</span>
                             <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-green-500/10 text-green-500">
                                 Available for work
                             </span>

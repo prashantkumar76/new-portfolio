@@ -4,22 +4,29 @@ import Hero from "@/components/Hero"
 import { ProjectCard } from "@/components/ProjectCard"
 import Footer from "@/components/Footer"
 import ExperienceSection from "@/components/Experience"
+import CertificationsSection from "@/components/CertificationsSection"
 import StackSection from "@/components/StackSection"
 import GithubGraph from "@/components/GithubGraph"
 import Contact from "@/components/Contact"
-import { PROJECTS, EXPERIENCE_DATA, AboutMeData } from "@/lib/Constant"
+import { PROJECTS, EXPERIENCE_DATA, CERTIFICATION_DATA, AboutMeData } from "@/lib/Constant"
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 relative">
-      {/* Global Background Grid */}
-      <div className="fixed inset-0 -z-50 h-full w-full bg-grid-black dark:bg-grid-white [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none opacity-40 dark:opacity-20"></div>
+      <div
+        className="fixed inset-0 -z-50 w-full h-full bg-cover bg-center pointer-events-none opacity-40 dark:opacity-20"
+        style={{
+          backgroundImage: 'url("/assets/background.png")',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
+        }}
+      ></div>
       <Header />
 
       <main className="container-width px-4 md:px-6 space-y-12 pb-20">
         <Hero />
-
-        <section id="about" className="scroll-section">
+        <section id="about" className="scroll-section space-y-2">
           <h2 className="section-title">{AboutMeData.text}</h2>
           <div className="prose dark:prose-invert max-w-none text-muted-foreground">
             <p className="text-lg leading-relaxed">
@@ -30,28 +37,34 @@ const Index = () => {
 
         <hr className="border-edge" />
 
-        <section id="github" className="scroll-section">
+        <section id="github" className="scroll-section space-y-2">
           <h2 className="section-title">GitHub Activity</h2>
           <GithubGraph />
         </section>
 
         <hr className="border-edge" />
 
-        <section id="stack" className="scroll-section">
+        <section id="stack" className="scroll-section space-y-2">
           <h2 className="section-title">Tech Stack</h2>
           <StackSection />
         </section>
 
         <hr className="border-edge" />
 
-        <section id="experience" className="scroll-section">
+        <section id="experience" className="scroll-section space-y-2">
           <h2 className="section-title">Experience</h2>
           <ExperienceSection experiences={EXPERIENCE_DATA} />
         </section>
 
         <hr className="border-edge" />
 
-        <section id="projects" className="scroll-section">
+        <section id="certifications" className="scroll-section space-y-2">
+          <CertificationsSection certifications={CERTIFICATION_DATA} />
+        </section>
+
+        <hr className="border-edge" />
+
+        <section id="projects" className="scroll-section space-y-2">
           <h2 className="section-title">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROJECTS.map((project) => (

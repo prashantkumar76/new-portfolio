@@ -30,10 +30,6 @@ export interface Experience {
     description: string[];
     tech: string[];
 };
-export interface TimelineItemProps {
-    experience: Experience;
-    index: number;
-};
 export interface VisitorInfo {
     location: string;
 };
@@ -45,16 +41,6 @@ export interface Certification {
     description: string;
     image: string;
     credentialId: string;
-};
-export interface MyBatteryManager extends EventTarget {
-    charging: boolean;
-    level: number;
-    onlevelchange: ((this: MyBatteryManager, ev: Event) => void) | null;
-    onchargingchange: ((this: MyBatteryManager, ev: Event) => void) | null;
-    addEventListener: (
-        type: 'levelchange' | 'chargingchange',
-        listener: (this: MyBatteryManager, ev: Event) => void
-    ) => void;
 };
 export interface NetworkInfo {
     downlink: number;

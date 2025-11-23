@@ -2,28 +2,29 @@ import { Bolt, Boxes, Chrome, Code, Database, GithubIcon, Instagram, LinkedinIco
 import { Certification, Experience, Project, SkillBubble, SkillListDataTypes } from "./Types";
 
 export const SKILLS: SkillBubble[] = [
-    { id: 1, name: "C", level: 80, color: "#A8B9CC" },
-    { id: 2, name: "Java", level: 85, color: "#007396" },
-    { id: 3, name: "PHP", level: 75, color: "#777BB4" },
-    { id: 4, name: "Node.js", level: 80, color: "#339933" },
-    { id: 5, name: "SQL", level: 85, color: "#4479A1" },
-    { id: 6, name: "MongoDB", level: 80, color: "#47A248" },
-    { id: 7, name: "Figma", level: 75, color: "#F24E1E" },
-    { id: 8, name: "Photopea", level: 70, color: "#000000" },
-    { id: 9, name: "HTML", level: 90, color: "#E34F26" },
-    { id: 10, name: "CSS", level: 90, color: "#1572B6" },
-    { id: 11, name: "JavaScript", level: 85, color: "#F7DF1E" },
-    { id: 12, name: "Tailwind CSS", level: 85, color: "#06B6D4" },
-    { id: 13, name: "Bootstrap", level: 80, color: "#7952B3" },
-    { id: 14, name: "Next.js", level: 85, color: "#000000" },
-    { id: 15, name: "Express.js", level: 80, color: "#000000" },
-    { id: 16, name: "React.js", level: 85, color: "#61DAFB" },
-    { id: 17, name: "Git", level: 80, color: "#F05032" },
-    { id: 18, name: "Docker", level: 75, color: "#2496ED" },
-    { id: 19, name: "Postman", level: 85, color: "#FF6C37" },
-    { id: 20, name: "Google Cloud", level: 70, color: "#4285F4" },
-    { id: 21, name: "Cursor", level: 80, color: "#000000" },
-    { id: 22, name: "Miro", level: 75, color: "#050038" }
+    { id: 1, name: "Node.js", level: 80, color: "#339933" },
+    { id: 2, name: "React.js", level: 85, color: "#339933" },
+    { id: 3, name: "Express.js", level: 80, color: "#339933" },
+    { id: 4, name: "Next.js", level: 85, color: "#339933" },
+    { id: 5, name: "Nest js", level: 80, color: "#339933" },
+    { id: 6, name: "MongoDB", level: 90, color: "#339933" },
+    { id: 7, name: "SQL", level: 85, color: "#339933" },
+    { id: 8, name: "JavaScript", level: 85, color: "#339933" },
+    { id: 9, name: "Tailwind CSS", level: 85, color: "#339933" },
+    { id: 10, name: "Bootstrap", level: 80, color: "#339933" },
+    { id: 11, name: "Java", level: 65, color: "#FCBE7E" },
+    { id: 12, name: "PHP", level: 55, color: "#F59E0B" },
+    { id: 13, name: "Figma", level: 55, color: "#F59E0B" },
+    { id: 14, name: "Photopea", level: 50, color: "#F59E0B" },
+    { id: 15, name: "HTML", level: 90, color: "#339933" },
+    { id: 16, name: "CSS", level: 90, color: "#339933" },
+    { id: 17, name: "Git", level: 80, color: "#339933" },
+    { id: 18, name: "Docker", level: 75, color: "#339933" },
+    { id: 19, name: "Postman", level: 85, color: "#339933" },
+    { id: 20, name: "Kubernetes", level: 55, color: "#F59E0B" },
+    { id: 21, name: "Google Cloud", level: 50, color: "#F59E0B" },
+    { id: 22, name: "Cursor", level: 80, color: "#339933" },
+    { id: 23, name: "Miro", level: 75, color: "#339933" }
 ];
 export const SKILL_LIST_DATA: SkillListDataTypes[] = [
     {
@@ -43,7 +44,7 @@ export const SKILL_LIST_DATA: SkillListDataTypes[] = [
     },
     {
         title: "Frameworks",
-        skills: ["Next.js", "Express.js", "React.js"],
+        skills: ["Next.js", "Express.js","Nest js", "React.js"],
         icon: <Boxes />
     },
     {

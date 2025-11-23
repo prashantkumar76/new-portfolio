@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { CommandPalette } from "./CommandPalette"
 import { cn } from "@/lib/utils"
 import { Moon, Sun } from "lucide-react"
@@ -10,7 +10,6 @@ import { Button } from "./ui/button"
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
     const { theme, setTheme } = useTheme()
-    const location = useLocation()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,13 +18,6 @@ export default function Header() {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
-
-    const navLinks = [
-        { name: "Home", path: "/" },
-        { name: "About", path: "/#about" },
-        { name: "Projects", path: "/#projects" },
-        { name: "Stack", path: "/#stack" },
-    ]
 
     return (
         <header
@@ -36,23 +28,8 @@ export default function Header() {
         >
             <div className="container-width flex items-center justify-between">
                 <Link to="/" className="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
-                    CK
+                    Golu Singh
                 </Link>
-
-                <nav className="hidden md:flex items-center gap-6">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.path}
-                            className={cn(
-                                "text-sm font-medium transition-colors hover:text-primary",
-                                location.pathname === link.path ? "text-primary" : "text-muted-foreground"
-                            )}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </nav>
 
                 <div className="flex items-center gap-2">
                     <CommandPalette />

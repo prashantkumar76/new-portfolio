@@ -10,7 +10,7 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
     return (
         <div className="space-y-8">
             {experiences.map((exp) => (
-                <div key={exp.id} className="relative pl-8 border-l border-border/50 last:border-0">
+                <div key={exp.id} className="relative pl-8 border-l border-border/50">
                     <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-background" />
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                         <h3 className="text-xl font-bold">{exp.role}</h3>
