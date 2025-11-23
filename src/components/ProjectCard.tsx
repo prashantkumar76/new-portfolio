@@ -1,82 +1,75 @@
-import { cardVariants } from '@/lib/Animations';
-import { ProjectCardProps } from '@/lib/Types';
-import { motion, useMotionValue } from 'framer-motion';
 
-const ProjectCard = ({ project, isFocused, setFocusedId }: ProjectCardProps) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Github, ExternalLink } from "lucide-react"
+import { cn } from "@/lib/utils"
 
+interface ProjectCardProps {
+  title: string
+  description: string
+  tags: string[]
+  image?: string
+  githubUrl?: string
+  liveUrl?: string
+  className?: string
+}
+
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  image,
+  githubUrl,
+  liveUrl,
+  className,
+}: ProjectCardProps) {
   return (
-    <motion.div
-      className="w-full md:w-[calc(50%-1rem)]  glass-card rounded-xl overflow-hidden"
-      style={{ x, y }}
-      drag="x"
-      dragConstraints={{ left: -50, right: 50 }}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
-      onDragEnd={() => {
-        x.set(0);
-        y.set(0);
-      }}
-      variants={cardVariants}
-      whileHover="hover"
-      whileTap="tap"
-      onHoverStart={() => setFocusedId(project.id)}
-      onHoverEnd={() => setFocusedId(null)}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
-      <div className="relative h-64 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-contain bg-no-repeat bg-center aspect-video rounded-xl"
-          style={{ backgroundImage: `url(${project.image})` }}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+    <Card className={cn("overflow-hidden flex flex-col h-full hover:shadow-lg transition-all duration-300 group border-border/50", className)}>
+      <div className="relative aspect-video overflow-hidden bg-muted">
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full text-muted-foreground">
+            No Image
+          </div>
+        )}
       </div>
-
-      <div className="p-6">
-        <motion.h3
-          className="text-xl font-semibold mb-2"
-          animate={{ scale: isFocused ? 1.01 : 1 }}
-        >
-          {project.title}
-        </motion.h3>
-
-        <p className="text-muted-foreground mb-4 text-sm">
-          {project.description}
+      <CardHeader className="p-4">
+        <CardTitle className="text-xl font-bold flex items-center gap-2">{title}
+          {liveUrl && (
+              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4" />
+              </a>
+          )}
+          </CardTitle>
+        <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
+          {description}
         </p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, index) => (
-            <motion.span
-              key={index}
-              className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded-full"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.1 }}
-            >
+      </CardHeader>
+      <CardContent className="p-4 pt-0 flex-grow">
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <Badge key={tag} variant="secondary" className="font-normal">
               {tag}
-            </motion.span>
+            </Badge>
           ))}
         </div>
-
-        <motion.a
-          href={project.url}
-          target='blank'
-          className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          View Project
-        </motion.a>
-      </div>
-    </motion.div>
-  );
-};
-
-export default ProjectCard
+      </CardContent>
+      <CardFooter className="p-4 pt-0 flex gap-2">
+        {githubUrl && (
+          <Button variant="outline" size="sm" className="w-full gap-2" asChild>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="h-4 w-4" />
+              Code
+            </a>
+          </Button>
+        )}
+      </CardFooter>
+    </Card>
+  )
+}

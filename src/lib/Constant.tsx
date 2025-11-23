@@ -167,8 +167,12 @@ export const CERTIFICATION_DATA: Certification[] = [
     }
 ];
 export const socialIcons = [
-    { icon: <GithubIcon />, link: "https://github.com/yourgithub" },
-    { icon: <LinkedinIcon />, link: "https://linkedin.com/in/yourlinkedin" },
-    { icon: <TwitterIcon />, link: "https://twitter.com/yourtwitter" },
-    { icon: <Instagram />, link: "https://instagram.com/yourinsta" },
+    { icon: <GithubIcon />, link: "https://github.com/1sisodiyaji",name: 'Github' },
+    { icon: <LinkedinIcon />, link: "https://www.linkedin.com/in/golu-singh/",name: 'Linkedin' },
+    { icon: <TwitterIcon />, link: "https://x.com/GoluSin08643603",name: 'Twitter' },
+    { icon: <Instagram />, link: "https://www.instagram.com/golu_singh_sisodiya/",name: 'Instagram' },
 ];
+export const AboutMeData ={
+    text : 'About Me',
+    description : 'I am a Full Stack Developer with a passion for creating innovative and user-friendly web applications. With expertise in React.js, Node.js, and MongoDB, I am dedicated to delivering high-quality solutions that meet the needs of my clients. My goal is to create engaging and interactive experiences that provide value to users and help businesses succeed.',
+}
