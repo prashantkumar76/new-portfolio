@@ -7,6 +7,7 @@ export default function Contact() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        subject: "",
         message: ""
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,21 +23,22 @@ export default function Contact() {
         setIsSubmitting(true)
         setSubmitStatus("idle")
 
-        // Create mailto link with form data
-        const subject = encodeURIComponent(`Contact from ${formData.name}`)
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        )
-        const mailtoLink = `mailto:637golusingh@gmail.com?subject=${subject}&body=${body}`
-
         try {
-            // Open email client
-            window.location.href = mailtoLink
-            setSubmitStatus("success")
-            setFormData({ name: "", email: "", message: "" })
-            
-            // Reset status after 3 seconds
-            setTimeout(() => setSubmitStatus("idle"), 3000)
+            const response = await fetch('https://api.server.documentsheet.com/api/auth/submit-feedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            if (response.ok) {
+                setSubmitStatus("success")
+                setFormData({ name: "", email: "", subject: "", message: "" })
+                setTimeout(() => setSubmitStatus("idle"), 3000)
+            } else {
+                throw new Error('Failed to send message')
+            }
         } catch (error) {
             setSubmitStatus("error")
             setTimeout(() => setSubmitStatus("idle"), 3000)
@@ -93,6 +95,18 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className="space-y-2">
+                        <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+                        <input
+                            id="subject"
+                            type="text"
+                            placeholder="Project Inquiry"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            required
+                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        />
+                    </div>
+                    <div className="space-y-2">
                         <label htmlFor="message" className="text-sm font-medium">Message</label>
                         <textarea
                             id="message"
@@ -105,7 +119,7 @@ export default function Contact() {
                         />
                     </div>
                     {submitStatus === "success" && (
-                        <div className="text-sm text-green-500">Message sent successfully! Check your email client.</div>
+                        <div className="text-sm text-green-500">Message sent successfully!</div>
                     )}
                     {submitStatus === "error" && (
                         <div className="text-sm text-red-500">Something went wrong. Please try again.</div>
