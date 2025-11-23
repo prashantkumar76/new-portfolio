@@ -8,7 +8,7 @@ export default function Footer() {
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
           <a
-            href="https://github.com/golu-kumar"
+            href="https://github.com/1sisodiyaji"
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
@@ -17,7 +17,7 @@ export default function Footer() {
           </a>
           . The source code is available on{" "}
           <a
-            href="https://github.com/golu-kumar/portfolio"
+            href="https://github.com/1sisodiyaji/portfolio-golu"
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
@@ -31,8 +31,8 @@ export default function Footer() {
             llms.txt
           </a>
           <span>•</span>
-          <a href="/rss.xml" target="_blank" className="hover:underline underline-offset-4">
-            RSS
+          <a href="/sitemap.xml" target="_blank" className="hover:underline underline-offset-4">
+            sitemap.xml
           </a>
         </div>
       </div>
