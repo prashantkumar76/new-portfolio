@@ -28,7 +28,7 @@ export default function Header() {
         >
             <div className="container-width flex items-center justify-between">
                 <Link to="/" className="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
-                    Golu Singh
+                    Abhipsa Mallick
                 </Link>
 
                 <div className="flex items-center gap-2">

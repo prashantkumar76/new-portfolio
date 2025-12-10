@@ -9,6 +9,7 @@ import StackSection from "@/components/StackSection"
 import GithubGraph from "@/components/GithubGraph"
 import Contact from "@/components/Contact"
 import { PROJECTS, EXPERIENCE_DATA, CERTIFICATION_DATA, AboutMeData } from "@/lib/Constant"
+import LeetCodeGraph from "@/components/LeetCodeGraph"
 
 const Index = () => {
   return (
@@ -38,8 +39,9 @@ const Index = () => {
         <hr className="border-edge" />
 
         <section id="github" className="scroll-section space-y-2">
-          <h2 className="section-title">GitHub Activity</h2>
-          <GithubGraph />
+          <h2 className="section-title">LeetCode Activity</h2>
+         
+          <LeetCodeGraph />
         </section>
 
         <hr className="border-edge" />

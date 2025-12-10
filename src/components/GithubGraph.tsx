@@ -1,22 +1,20 @@
-
-import GitHubCalendar from "react-github-calendar";
+import { Leetcodecalendar } from "react-leetcode-calendar";
 import { useTheme } from "next-themes";
 
-export default function GithubGraph() {
+export default function LeetCodeGraph() {
     const { theme } = useTheme();
 
     return (
         <div className="w-full overflow-hidden border border-edge rounded-xl bg-card/30 p-4 sm:p-6 flex justify-center">
-            <GitHubCalendar
-                username="1sisodiyaji"
-                colorScheme={theme === "dark" ? "dark" : "light"}
-                fontSize={12}
-                blockSize={12}
-                blockMargin={4}
+            <div 
+                className="leetcode-calendar-wrapper"
                 style={{
-                    color: "hsl(var(--foreground))",
+                    fontSize: '12px',
+                    color: 'hsl(var(--foreground))',
                 }}
-            />
+            >
+                <Leetcodecalendar username="user5740CW" />
+            </div>
         </div>
     );
 }

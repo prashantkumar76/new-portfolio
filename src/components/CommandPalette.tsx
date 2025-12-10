@@ -115,7 +115,7 @@ export function CommandPalette() {
               className="cursor-pointer aria-selected:cursor-pointer"
             >
               <Github className="mr-2 h-4 w-4" />
-              <span>GitHub Activity</span>
+              <span>LeetCode Activity</span>
             </CommandItem>
             <CommandItem
               value="stack"

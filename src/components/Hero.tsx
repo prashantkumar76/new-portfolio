@@ -27,14 +27,14 @@ export default function Hero() {
                 <div className="flex flex-1 flex-col justify-between">
                     <div className="flex flex-col p-4 gap-2">
                         <div className="flex items-center justify-between">
-                            <span className="text-sm text-muted-foreground font-mono">@golu-singh</span>
+                            <span className="text-sm text-muted-foreground font-mono">@abhipsa_mallick</span>
                             <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-green-500/10 text-green-500">
                                 Available for work
                             </span>
                         </div>
 
                         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                            Golu Singh
+                            Abhipsa Mallick
                         </h1>
                     </div>
 
@@ -42,9 +42,10 @@ export default function Hero() {
                         <FlipSentences className="text-lg text-muted-foreground font-mono h-8">
                             {[
                                 "Full Stack Developer",
-                                "Open Source Enthusiast",
-                                "UI/UX Designer",
-                                "Problem Solver"
+                                "Backend & ML Engineer",
+                                "Software Developer",
+                                "Strong in DSA"
+
                             ]}
                         </FlipSentences>
                     </div>
